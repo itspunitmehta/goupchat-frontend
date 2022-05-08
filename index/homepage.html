@@ -7,19 +7,40 @@
     <title>Homepage MeChat</title>
     <style>
         body {
-            background-color: black;
+            background-image: url(../public/img/homepage.jpg);
         }
         body h1{
             text-align: center;
             color: white;
         }
         header {
-            color: blue;
+            background-color: black;
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            color: rgb(100, 100, 126);
+            text-align: center;
+            font-size: larger;
+            font-weight: bolder;
+        }
+        ul{
+            margin: 1 0 0 -0.8125em;
+            text-align: center;
+        }
+        li{
+            margin-bottom: 10px;
+            background-color: rgb(182, 165, 165);
         }
     </style>
 </head>
 <body>
     <header>Welcome to MeChat</header>
-    <h1>you have successfully logged in</h1>
+    <ul id="user">
+
+    </ul>
+    <ul id="message">
+
+    </ul>
+    <script src="./homepage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

@@ -14,13 +14,14 @@ function signup(e){
     .then(res=>{
         if(res.status===201){
             // alert('User Created Successfully! Please Login....')
-            alert(`${res.message}`)
-            window.location.href = "../login/login.html";
+            alert(`${res.data.message}`)
+            console.log(res);
+            // window.location.href = "../login/login.html";
         }
     })
     .catch(err=>{
         // console.log(err);
         alert(`${err.response.data.message}`)
-        window.location.href = "../login/login.html";
+        // window.location.href = "../login/login.html";
     })
 }
