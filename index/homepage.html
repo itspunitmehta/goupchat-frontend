@@ -9,26 +9,63 @@
         body {
             background-image: url(../public/img/homepage.jpg);
         }
+
         body h1{
             text-align: center;
             color: white;
         }
+
         header {
-            background-color: black;
+            background-color: #f0f2f5;
             border-radius: 10px;
             padding: 0.5rem 1rem;
-            color: rgb(100, 100, 126);
+            color: #54656f;
             text-align: center;
-            font-size: larger;
+            font-size: x-large;
             font-weight: bolder;
         }
+
         ul{
             margin: 1 0 0 -0.8125em;
             text-align: center;
+            list-style-type: none;
         }
+
         li{
             margin-bottom: 10px;
-            background-color: rgb(182, 165, 165);
+            background-color: #d1f4cc;
+            border-radius: 5px;
+            font-size: large;
+        }
+        .content{
+            position: relative;
+            height: 400px;
+            align-items: center;
+        }
+        .message-form{
+            display: inline-block;
+            align-items: center;
+            position: absolute;
+            bottom: 0px;
+        }
+        input {
+            width: 1100px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button{
+            width: 100px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -40,6 +77,15 @@
     <ul id="message">
 
     </ul>
+    <div class="content">
+        <div class="message-form">
+            <form onsubmit="sendmessage(event)">
+            <label for="message"></label>
+            <input type="text" name="message" placeholder="Type a message...">
+            <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
     <script src="./homepage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
