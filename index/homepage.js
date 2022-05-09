@@ -1,5 +1,7 @@
 const token = localStorage.getItem('authToken');
 
+// setInterval('window.location.reload()', 1000)
+
 window.addEventListener('load',()=>{
     axios.get('http://localhost:4000/chat/join',{headers:{authanticate:token}})
     .then(response=>{
@@ -17,21 +19,6 @@ window.addEventListener('load',()=>{
         if(err.response.status===500){
             window.location.href="../signup/signup.html"
         }
-    })
-
-
-    axios.get('http://localhost:4000/chat/recieve',{headers:{authanticate:token}})
-    .then(res=>{
-        if(res.status===200){
-            console.log(res)
-            const msgs = res.data.messages
-            msgs.forEach(msg => {
-            addMsgToDOM(msg.message,msg.id);
-            });
-        }
-    })
-    .catch(err=>{
-        console.log(err);
     })
 
 })
@@ -74,3 +61,21 @@ function addMsgToDOM(message,name){
             ${name}: ${message}
         </li>`
 }
+
+setInterval(()=>{
+    axios.get('http://localhost:4000/chat/recieve',{headers:{authanticate:token}})
+    .then(res=>{
+        if(res.status===200){
+            console.log(res)
+            const parentElement = document.getElementById('message');
+            parentElement.innerHTML = " ";
+            const msgs = res.data.messages
+            msgs.forEach(msg => {
+            addMsgToDOM(msg.message,msg.id);
+            });
+        }
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+},2000)
