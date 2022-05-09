@@ -18,5 +18,11 @@ function login(e){
     .catch(err=>{
         console.log(err);
         alert(`${err.response.data.message}`)
+        if(err.response.status===400){
+            window.location.href="../signup/signup.html"
+        }
+        if(err.response.status===404){
+            window.location.href="../404.html"
+        }
     })
 }
